@@ -6,7 +6,7 @@ import {
   signUpOperation,
 } from "../../redux/Auth/auth-operations";
 // import { errorSelector, loaderSelector } from "../../redux/Auth/auth-selectors";
-import AuthForm from "../auth/authForm/AuthFormgit ";
+import AuthForm from "../auth/authForm/AuthForm";
 
 const Auth = () => {
   const dispatch = useDispatch();
