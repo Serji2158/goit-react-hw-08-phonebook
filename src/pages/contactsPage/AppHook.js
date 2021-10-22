@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import ContactList from "./contactList/ContactList";
-import Filter from "./filter/Filter";
-import ContactForm from "./contactForm/ContactForm";
+import ContactList from "../../Component/contactList/ContactList";
+import Filter from "../../Component/filter/Filter";
+import ContactForm from "../../Component/contactForm/ContactForm";
 import { useDispatch } from "react-redux";
-import { getContacts } from "../redux/Contacts/contactsOperation";
+import { getContacts } from "../../redux/Contacts/contactsOperation";
 
 const AppHook = () => {
   const dispatch = useDispatch();
