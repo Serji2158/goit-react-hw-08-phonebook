@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
 import { contactsItemReducer } from "./Contacts/contactsReducer";
 import {
-  // persistStore,
-  // persistReducer,
+  persistStore,
+  persistReducer,
   FLUSH,
   REHYDRATE,
   PAUSE,
@@ -10,14 +10,15 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
-// import storage from "redux-persist/lib/storage";
+import storage from "redux-persist/lib/storage";
 import { configureStore } from "@reduxjs/toolkit";
+import { authReducer } from "./Auth/auth-reducer";
 
-// const persistConfig = {
-//   key: "contacts",
-//   storage,
-//   blacklist: ["filter"],
-// };
+const persistConfig = {
+  key: "contacts",
+  storage,
+  whitelist: ["user", "token"],
+};
 
 const middleware = (getDefaultMiddleware) =>
   getDefaultMiddleware({
@@ -28,6 +29,7 @@ const middleware = (getDefaultMiddleware) =>
 
 const rootReducer = combineReducers({
   contacts: contactsItemReducer,
+  authorization: persistReducer(persistConfig, authReducer),
 });
 
 export const store = configureStore({
@@ -35,4 +37,4 @@ export const store = configureStore({
   middleware,
 });
 
-// export const persistor = persistStore(store);
+export const persistor = persistStore(store);

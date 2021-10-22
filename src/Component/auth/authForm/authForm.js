@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
+import { AuthFormContainer } from "./AuthFormStyled";
 
 const AuthForm = ({ signUp, signIn }) => {
   const [email, setEmail] = useState("");
@@ -22,40 +23,45 @@ const AuthForm = ({ signUp, signIn }) => {
   };
 
   return (
-    <form onSubmit={onHandleSubmit}>
-      {location.pathname === "/register" && (
-        <label>
-          Name
+    <AuthFormContainer>
+      <form onSubmit={onHandleSubmit} className="authForm">
+        {location.pathname === "/register" && (
+          <label className="inputName">
+            Name
+            <input
+              type="text"
+              value={displayName}
+              onChange={onHandleChange}
+              name="displayName"
+              className="input"
+            />
+          </label>
+        )}
+        <label className="inputName">
+          Email
           <input
             type="text"
-            value={displayName}
+            value={email}
             onChange={onHandleChange}
-            name="displayName"
+            name="email"
+            className="input"
           />
         </label>
-      )}
-      <label>
-        Email
-        <input
-          type="text"
-          value={email}
-          onChange={onHandleChange}
-          name="email"
-        />
-      </label>
-      <label>
-        Password
-        <input
-          type="text"
-          value={password}
-          onChange={onHandleChange}
-          name="password"
-        />
-      </label>
-      <button type="submit">
-        {location.pathname === "/register" ? "Sign up" : "Sign in"}
-      </button>
-    </form>
+        <label className="inputName">
+          Password
+          <input
+            type="text"
+            value={password}
+            onChange={onHandleChange}
+            name="password"
+            className="input"
+          />
+        </label>
+        <button type="submit" className="btn">
+          {location.pathname === "/register" ? "Sign up" : "Sign in"}
+        </button>
+      </form>
+    </AuthFormContainer>
   );
 };
 
