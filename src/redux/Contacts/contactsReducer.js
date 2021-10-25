@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 import { createReducer } from "@reduxjs/toolkit";
-import { setError } from "./contactsActions";
+// import { setError } from "./contactsActions";
 import {
   addContactRequest,
   addContactSuccess,
@@ -42,7 +42,13 @@ const loadingReducer = createReducer(false, {
 });
 
 const errorReducer = createReducer("", {
-  [setError]: (_, action) => action.payload,
+  [addContactError]: (_, action) => action.payload,
+  [deleteContactError]: (_, action) => action.payload,
+  [getContactsError]: (_, action) => action.payload,
+  // [setError]: (_, action) => action.payload,
+  [addContactRequest]: () => "",
+  [deleteContactRequest]: () => "",
+  [getContactsRequest]: () => "",
   [signOutSuccess]: () => "",
 });
 

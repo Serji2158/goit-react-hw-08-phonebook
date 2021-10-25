@@ -8,6 +8,7 @@ import {
   signUpSuccess,
 } from "./auth-actions";
 import { SingUP_URL, SignIN_URL } from "../../service/Api";
+
 const signUpOperation = (user) => async (dispatch) => {
   dispatch(signUpRequest());
   try {

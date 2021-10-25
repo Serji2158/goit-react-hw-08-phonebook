@@ -17,7 +17,7 @@ import { authReducer } from "./Auth/auth-reducer";
 const persistConfig = {
   key: "contacts",
   storage,
-  whitelist: ["user", "token"],
+  whitelist: ["user", "tokens"],
 };
 
 const middleware = (getDefaultMiddleware) =>
